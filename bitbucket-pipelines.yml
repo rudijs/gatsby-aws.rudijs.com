@@ -1,0 +1,17 @@
+# Custom docker image from Docker Hub as your build environment.
+# Official node image
+image: node:10.15.3
+
+pipelines:
+  default:
+    - step:
+        name: Default Pipeline
+        script:
+          - echo "Default pipeline"
+  branches:
+    master:
+      - step:
+          name: Production Build and Deploy
+          deployment: production
+          script:
+            - echo "Master build and deploy"
